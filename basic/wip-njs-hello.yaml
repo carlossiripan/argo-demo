@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wip-njs-hello
+  namespace: pocapp
+  labels:
+    app: wip-njs-hello
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: wip-njs-hello
+  template:
+    metadata:
+      labels:
+        app: wip-njs-hello
+    spec:
+      containers:
+      - name: wip-njs-hello
+        image: charlessiripan/wip-njs-hello:0.1
+        ports:
+          - containerPort: 80
